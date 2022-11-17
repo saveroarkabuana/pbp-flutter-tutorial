@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab06vero/main.dart';
+import 'package:lab06vero/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -41,6 +42,7 @@ class _MyFormPageState extends State<MyFormPage> {
       drawer: Drawer(
         child: Column(
           children: [
+
             ListTile(
               title: const Text('Counter'),
               onTap: () {
@@ -56,9 +58,20 @@ class _MyFormPageState extends State<MyFormPage> {
                 Navigator.pop(context);
               },
             ),
+
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
+
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -101,6 +114,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5),
                   ),
+
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -108,6 +122,7 @@ class _MyFormPageState extends State<MyFormPage> {
                         leading: Icon(Icons.school),
                         title: Text("Jenjang"),
                       ),
+
                       CheckboxListTile(
                         title: const Text('Sarjana'),
                         value: jenjangSarjana,
@@ -121,6 +136,7 @@ class _MyFormPageState extends State<MyFormPage> {
                           });
                         },
                       ),
+
                       CheckboxListTile(
                         title: const Text('Diploma'),
                         value: jenjangDiploma,
@@ -134,6 +150,7 @@ class _MyFormPageState extends State<MyFormPage> {
                           });
                         },
                       ),
+
                       CheckboxListTile(
                         title: const Text('Magister'),
                         value: jenjangMagister,
@@ -147,6 +164,7 @@ class _MyFormPageState extends State<MyFormPage> {
                           });
                         },
                       ),
+
                       CheckboxListTile(
                         title: const Text('Doktor'),
                         value: jenjangDoktor,
@@ -163,6 +181,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     ],
                   ),
                 ),
+
                 ListTile(
                   leading: const Icon(Icons.co_present),
                   title: Row(
@@ -182,6 +201,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     },
                   ),
                 ),
+
                 ListTile(
                   leading: const Icon(Icons.class_),
                   title: const Text(
@@ -203,6 +223,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     },
                   ),
                 ),
+
                 SwitchListTile(
                   title: const Text('Practice Mode'),
                   value: _nilaiSwitch,
@@ -213,6 +234,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   },
                   secondary: const Icon(Icons.run_circle_outlined),
                 ),
+                
                 TextButton(
                   child: const Text(
                     "Simpan",
